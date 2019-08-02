@@ -1,0 +1,16 @@
+syntax = "proto3";
+package com.example.test_plugin;
+option java_package = "com.example.test_plugin.proto";
+
+enum MethodChannelName {
+  TEST_PLUGIN = 0;
+}
+
+enum MethodChannelCalls {
+  GET_PLATFORM_VERSION = 0;
+}
+
+message PlatformVersionResponse {
+  string os_name = 1;
+  int32 os_version = 2;
+}
