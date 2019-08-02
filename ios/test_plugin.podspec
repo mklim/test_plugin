@@ -19,3 +19,6 @@ A new flutter plugin project.
   s.ios.deployment_target = '8.0'
 end
 
+#target 'MyApp' do
+#  pod 'Protobuf', '~> 3.9'
+#end

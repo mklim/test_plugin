@@ -1,6 +1,7 @@
 syntax = "proto3";
 package com.example.test_plugin;
 option java_package = "com.example.test_plugin.proto";
+option objc_class_prefix = "TPROTO";
 
 enum MethodChannelName {
   TEST_PLUGIN = 0;
