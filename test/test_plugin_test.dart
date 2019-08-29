@@ -1,8 +1,10 @@
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:test_plugin/test_plugin.dart';
+import 'package:test_plugin/test_plugin.auto_channel.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   const MethodChannel channel = MethodChannel('test_plugin');
 
   setUp(() {
@@ -16,6 +18,6 @@ void main() {
   });
 
   test('getPlatformVersion', () async {
-    expect(await TestPlugin.platformVersion, '42');
+    expect(await TestPluginApiInvoker().getPlatformVersion(), '42');
   });
 }

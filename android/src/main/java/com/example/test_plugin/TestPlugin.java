@@ -5,21 +5,30 @@ import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
+import com.example.test_plugin.generated.TestPluginApi;
+import com.example.test_plugin.generated.TestPluginApiHandler;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /** TestPlugin */
-public class TestPlugin implements MethodCallHandler {
+public class TestPlugin implements TestPluginApi {
   /** Plugin registration. */
   public static void registerWith(Registrar registrar) {
-    final MethodChannel channel = new MethodChannel(registrar.messenger(), "test_plugin");
-    channel.setMethodCallHandler(new TestPlugin());
+    new TestPluginApiHandler(new TestPlugin(), registrar);
   }
 
   @Override
-  public void onMethodCall(MethodCall call, Result result) {
-    if (call.method.equals("getPlatformVersion")) {
-      result.success("Android " + android.os.Build.VERSION.RELEASE);
-    } else {
-      result.notImplemented();
+  public String getPlatformVersion() {
+    return "Android " + android.os.Build.VERSION.RELEASE;
+  }
+
+  @Override
+  public ArrayList<String> complicatedMethod(ArrayList<String> test) {
+    ArrayList<String> output = new ArrayList<>();
+    for (String str : test) {
+      output.add("Java transformed: " + str);
     }
+    return output;
   }
 }

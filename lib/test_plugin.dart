@@ -1,13 +1,16 @@
-import 'dart:async';
+import 'package:auto_channel_builder/annotation/method_channel_api.dart';
 
-import 'package:flutter/services.dart';
-
-class TestPlugin {
-  static const MethodChannel _channel =
-      const MethodChannel('test_plugin');
-
-  static Future<String> get platformVersion async {
-    final String version = await _channel.invokeMethod('getPlatformVersion');
-    return version;
-  }
+@MethodChannelApi(
+  channelName: 'test_plugin',
+  invokers: <Language>[Language.dart],
+  handlers: <Language>[
+    Language(
+        name: javaName,
+        options: JavaOptions(
+            basePackageName: 'com.example.test_plugin'))
+  ],
+)
+abstract class TestPluginApi {
+  Future<String> getPlatformVersion();
+  Future<List<String>> complicatedMethod(List<String> test);
 }
