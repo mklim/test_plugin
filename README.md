@@ -3,7 +3,7 @@
 A new flutter plugin project.
 
 Test plugin using the
-[auto_channel_builder](https://github.com/mklim/plugins/tree/auto_channel_builder)
+[flutterbuff_builder](https://github.com/mklim/plugins/tree/flutterbuff_builder)
 prototype.
 
 ## Getting Started

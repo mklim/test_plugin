@@ -1,9 +1,9 @@
-import 'package:auto_channel_builder/annotation/method_channel_api.dart';
+import 'package:flutterbuff_builder/annotation/flutterbuff_api.dart';
 
-@MethodChannelApi(
+@FlutterbuffApi(
   channelName: 'test_plugin',
-  invokers: <Language>[Language.dart],
-  handlers: <Language>[
+  clients: <Language>[Language.dart],
+  servers: <Language>[
     Language(
         name: javaName,
         options: JavaOptions(

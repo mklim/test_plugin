@@ -1,7 +1,7 @@
   import 'package:test_plugin/test_plugin.dart';
   import 'package:flutter/services.dart';
 
-  class TestPluginApiInvoker implements TestPluginApi {
+  class TestPluginApiClient implements TestPluginApi {
     MethodChannel _methodChannel = MethodChannel('test_plugin');
 
     @override

@@ -10,11 +10,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  auto_channel_builder:
-    git:
-      url: git@github.com:mklim/plugins.git
-      path: packages/auto_channel_builder
-      ref: auto_channel_builder
+  flutterbuff_builder:
+    # git:
+    #   url: git@github.com:mklim/plugins.git
+    #   path: packages/flutterbuff_builder
+    #   ref: flutterbuff_builder
+    path: /usr/local/google/home/mklim/mnt/plugins/packages/flutterbuff_builder
+
 
 dev_dependencies:
   flutter_test:

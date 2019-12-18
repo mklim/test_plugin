@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:test_plugin/test_plugin.auto_channel.dart';
+import 'package:test_plugin/test_plugin.flutterbuff.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
