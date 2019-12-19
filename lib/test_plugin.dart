@@ -1,4 +1,4 @@
-import 'package:flutterbuff_builder/annotation/flutterbuff_api.dart';
+import 'package:flutterbuff_annotation/flutterbuff_api.dart';
 
 @FlutterbuffApi(
   channelName: 'test_plugin',

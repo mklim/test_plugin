@@ -10,18 +10,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutterbuff_builder:
-    # git:
-    #   url: git@github.com:mklim/plugins.git
-    #   path: packages/flutterbuff_builder
-    #   ref: flutterbuff_builder
-    path: /usr/local/google/home/mklim/mnt/plugins/packages/flutterbuff_builder
+  flutterbuff_annotation:
+    path: /usr/local/google/home/mklim/mnt/plugins/packages/flutterbuff/flutterbuff_annotation
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: any
+  flutterbuff_builders:
+    path: /usr/local/google/home/mklim/mnt/plugins/packages/flutterbuff/flutterbuff_builders
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
