@@ -1,20 +1,17 @@
 part of 'property.dart';
 
-class Property implements _Property {
-  Property({this.name, this.age, this.forSale, this.price, this.address, this.previousSales});
+Property _$PropertyFromFlutterbuff(Map<String, dynamic> fb) {
+  Property output = Property();
+  output.name = fb["name"];
+  output.age = fb["age"];
+  output.forSale = fb["forSale"];
+  output.price = fb["price"];
+  output.address = fb["address"];
+  output.previousSales = fb["previousSales"];
 
-  static Property fromFlutterbuff(Map<String, dynamic> flutterbuff) {
-    return Property(name: flutterbuff["name"], age: flutterbuff["age"], forSale: flutterbuff["forSale"], price: flutterbuff["price"], address: flutterbuff["address"], previousSales: flutterbuff["previousSales"]);
+  return output;
   }
 
-  Map<String, dynamic> toFlutterbuff() {
-    return <String, dynamic>{"name": name, "age": age, "forSale": forSale, "price": price, "address": address, "previousSales": previousSales};
-  }
-
-  String name;
-  int age;
-  bool forSale;
-  double price;
-  List<String> address;
-  Map<int, double> previousSales;
+Map<String, dynamic> _$PropertyToJson(Property input) {
+  return <String, dynamic>{"name": input.name, "age": input.age, "forSale": input.forSale, "price": input.price, "address": input.address, "previousSales": input.previousSales};
 }
