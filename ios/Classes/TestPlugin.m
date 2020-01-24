@@ -1,20 +1,15 @@
 #import "TestPlugin.h"
+#if __has_include(<test_plugin/test_plugin-Swift.h>)
+#import <test_plugin/test_plugin-Swift.h>
+#else
+// Support project import fallback if the generated compatibility header
+// is not copied when this plugin is created as a library.
+// https://forums.swift.org/t/swift-static-libraries-dont-copy-generated-objective-c-header/19816
+#import "test_plugin-Swift.h"
+#endif
 
 @implementation TestPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
-  FlutterMethodChannel* channel = [FlutterMethodChannel
-      methodChannelWithName:@"test_plugin"
-            binaryMessenger:[registrar messenger]];
-  TestPlugin* instance = [[TestPlugin alloc] init];
-  [registrar addMethodCallDelegate:instance channel:channel];
+  [SwiftTestPlugin registerWithRegistrar:registrar];
 }
-
-- (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
-  if ([@"getPlatformVersion" isEqualToString:call.method]) {
-    result([@"iOS " stringByAppendingString:[[UIDevice currentDevice] systemVersion]]);
-  } else {
-    result(FlutterMethodNotImplemented);
-  }
-}
-
 @end
