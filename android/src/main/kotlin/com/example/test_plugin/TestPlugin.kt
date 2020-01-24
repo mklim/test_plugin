@@ -1,6 +1,7 @@
 package com.example.test_plugin
 
 import androidx.annotation.NonNull;
+import android.util.Log;
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -11,6 +12,7 @@ import io.flutter.plugin.common.PluginRegistry.Registrar
 /** TestPlugin */
 public class TestPlugin: FlutterPlugin, MethodCallHandler {
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
+    Log.i("xyzzy", "onAttachedToEngine: " + flutterPluginBinding.getFlutterEngine());
     val channel = MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "test_plugin")
     channel.setMethodCallHandler(TestPlugin());
   }
@@ -27,6 +29,7 @@ public class TestPlugin: FlutterPlugin, MethodCallHandler {
   companion object {
     @JvmStatic
     fun registerWith(registrar: Registrar) {
+      Log.i("xyzzy", "registerWith: " + registrar);
       val channel = MethodChannel(registrar.messenger(), "test_plugin")
       channel.setMethodCallHandler(TestPlugin())
     }
